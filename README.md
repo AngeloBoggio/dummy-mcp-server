@@ -1,15 +1,16 @@
 # Dummy MCP Server
 
-A dummy Master Control Program (MCP) server that can be connected to a Slack bot. This server provides a basic framework for handling MCP commands and can be extended based on specific requirements.
+A dummy Master Control Program (MCP) server written in TypeScript that can be connected to a Slack bot. This server provides a basic framework for handling MCP commands and can be extended based on specific requirements.
 
 ## Features
 
-- Express.js server with basic endpoints
+- Express.js server with TypeScript support
 - Winston logging setup
 - Environment-based configuration
 - Ready for Slack bot integration
 - Error handling middleware
 - Health check endpoint
+- Type-safe development
 
 ## Setup
 
@@ -36,8 +37,9 @@ The server will start on port 3000 (or the port specified in your .env file).
 
 ## Available Scripts
 
-- `npm start`: Start the production server
-- `npm run dev`: Start the development server with hot reload
+- `npm run build`: Build the TypeScript code to JavaScript
+- `npm start`: Start the production server (requires build first)
+- `npm run dev`: Start the development server with hot reload and TypeScript compilation
 - `npm test`: Run tests
 
 ## API Endpoints
@@ -50,13 +52,23 @@ The server will start on port 3000 (or the port specified in your .env file).
 ```
 dummy-mcp-server/
 ├── src/
-│   └── server.js
+│   └── server.ts
+├── dist/ (generated)
 ├── logs/
 ├── .env
 ├── .gitignore
 ├── package.json
+├── tsconfig.json
 └── README.md
 ```
+
+## Development
+
+The project uses TypeScript for type safety. The source files are in the `src/` directory and are compiled to JavaScript in the `dist/` directory.
+
+For development, use `npm run dev` which will automatically restart the server when you make changes to the TypeScript files.
+
+For production, first build the project with `npm run build` and then start it with `npm start`.
 
 ## Future Enhancements
 
